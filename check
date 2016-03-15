@@ -1,56 +1,56 @@
-package com.citi.eq.tds.re.rule.loader;
+package com.citi.eq.tds.re.ext;
 
+import com.citi.eq.tds.re.rule.event.Event;
 
-import com.citi.eq.tds.re.rule.core.RuleBuilder;
-import com.citi.eq.tds.re.rule.util.AssertArgument;
-import groovy.util.GroovyScriptEngine;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
+/**
+ * Created by mv29256 on 3/15/2016.
+ */
+public class Message implements Event {
 
-import static java.lang.String.format;
+    private static final Map<Integer, String> values = new HashMap<>();
+    private final String msgType;
 
-public class GroovyRulesLoader implements RulesLoader {
+    public Message(String fixString) {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(GroovyRulesLoader.class);
-    private GroovyScriptEngine scriptEngine;
+        Scanner scanner = new Scanner(fixString);
+        scanner.useDelimiter("\u0001");
 
-    public GroovyRulesLoader(String root) throws IOException {
-        scriptEngine = new GroovyScriptEngine(root);
+        while (scanner.hasNext()) {
+            String kv = scanner.next();
+            if (kv != null) {
+                String[] tagValue = kv.split("=");
+
+                if (tagValue != null && tagValue.length > 1) {
+                    values.put(Integer.valueOf(tagValue[0]), tagValue[1]);
+                }
+            }
+        }
+        this.msgType = values.get(35);
     }
 
-    public List<RuleBuilder> getRulesFor(String scriptName) {
-        return getRulesFor(new File(scriptName));
+    public String getTag(int tag) {
+        return values.get(tag);
+    }
+
+    public String setTag(int tag, String value) {
+        return values.put(tag, value);
     }
 
     @Override
-    public List<RuleBuilder> getRulesFor(File rulesFile) {
-        AssertArgument.isNotNull(rulesFile);
+    public String getField(int tag) {
+        return getTag(tag);
+    }
 
-        try {
+    @Override
+    public String getEventId() {
+        return getMsgType();
+    }
 
-            scriptEngine = new GroovyScriptEngine(rulesFile.getParent());
-            Class ruleClass = scriptEngine.loadScriptByName(rulesFile.getName());
-
-            Object ruleClassInstance = ruleClass.newInstance();
-            Object rules = ruleClass.getDeclaredMethod("getRules", new Class[]{}).invoke(ruleClassInstance, new Object[]{});
-
-            List<RuleBuilder> loaded = (List<RuleBuilder>) rules;
-
-            if (LOGGER.isInfoEnabled()) {
-                LOGGER.info(format("getRulesFor(): Loaded [%d] rules from [%s]", loaded.size(), rulesFile));
-            }
-
-            return loaded;
-
-        } catch (Exception e) {
-            LOGGER.error(format("Failed to load rules from [%s]", rulesFile), e);
-        }
-
-        return Collections.emptyList();
+    public String getMsgType() {
+        return msgType;
     }
 }

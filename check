@@ -1,16 +1,22 @@
+public enum TypeInferer {
 
-    public static Object convert(String field) {
-        TypeInferer type = TypeInferer.infer(field);
+    INT(Integer.class), DOUBLE(Double.class), STRING(String.class), TAG(GroovyTag.class), UNKNOWN(Object.class);
 
-        if (type == TypeInferer.STRING) {
-            return field;
-        } else if (type == TypeInferer.INT) {
-            return Integer.parseInt(field);
-        } else if (type == TypeInferer.DOUBLE) {
-            return Double.parseDouble(field);
-        } else if (type == TypeInferer.TAG) {
-            return new GroovyTag(1); //TODO
-        }
- 
-        return null;
+    private Class type;
+
+
+    TypeInferer(Class aClass) {
+        type = aClass;
     }
+
+    public static TypeInferer infer(String field) {
+
+        if (field != null) {
+            if (NUMERIC.matcher(field).matches()) return INT;
+            else if (Patterns.DOUBLE.matcher(field).matches()) return DOUBLE;
+            else if (Patterns.TAG.matcher(field).matches()) return TAG;
+        }
+
+        return STRING;
+    }
+}

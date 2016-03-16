@@ -1,14 +1,84 @@
-public class RulesLoaderFactory {
+grammar FixRules;
 
-    private static final Set<RulesLoader> loaders = new HashSet<>();
-    private static final Logger LOGGER = LoggerFactory.getLogger(RulesLoaderFactory.class);
+rules: rule+;
 
-    public static RulesLoader getLoaderFor(File rulesDir, String pattern) {
-        try {
-            return new AntlrRulesLoader(rulesDir.getAbsolutePath());
-        } catch (IOException e) {
-            LOGGER.error(format("Failed to load rules from %s", rulesDir), e);
-        }
-        return null;
-    }
-}
+rule            :  tag stmt (ACTION_DIRECTOR action)? ';' NEWLINE?;
+
+stmt            : listOperator list
+                | monoOperandOperator monoOperand
+                | logicalCondition;
+
+action          : 'WARN' | 'ERROR';
+
+monoOperandOperator       :   EQ|GR|GE|LS|LE|NE;
+monoOperand : operand | tag;
+
+tag : 'tag(' INT ')' ;
+
+operand : FLOAT | INT | STRING;
+
+biOperandOperator: between;
+biOperand: '(' FLOAT ','FLOAT')'
+         | '(' INT ','INT')'
+         | '(' date ','date')';
+
+listOperator: not? 'in';
+list: '['? operand (',' operand)* ']'?;
+
+logicalCondition: logicalOperator logicalOperand (and logicalOperand)* (onlyIf 'tag(' INT ')' logicalCondition)?;
+
+logicalOperator: is|mustBe|mustNotBe;
+logicalOperand: present|absent|mandatory|consistent|numeric|alphanumeric|before|after
+                |listOperator list
+                |biOperandOperator biOperand
+                |greaterThan monoOperand
+                |lessThan monoOperand
+                |equalTo monoOperand
+                ;
+
+and: 'and ';
+not: 'not ';
+is :  'is ' not?;
+mustBe: 'must be';
+mustNotBe: 'must not be';
+
+between: 'between';
+equalTo: 'equal to';
+greaterThan: 'greater than';
+lessThan: 'less than';
+
+present: 'present';
+absent: 'absent';
+alphanumeric: 'alphanumeric';
+mandatory: 'mandatory';
+consistent: 'consistent';
+numeric : 'numeric';
+
+before: 'before ' date;
+after: 'after ' date;
+
+dateToday: 'today';
+dateTomorrow: 'tomorrow';
+dateYesterday: 'yesterday';
+
+date: dateToday | dateTomorrow | dateYesterday;
+
+onlyIf: 'if ';
+
+//Lexer rules
+ID      :   [a-zA-Z]+ ;                             // match identifiers
+INT     :   '-'? [0-9]+;                            // match integers
+FLOAT   :   '0'..'9'+('.'('0'..'9')*)? ;            // match float
+NEWLINE :'\r'? '\n' ;                               // return newlines to parser (end-statement signal)
+WS     : [ \t\n\r]+ -> skip ;                       // toss out whitespace
+EQ      :   '=';
+GR: '>';
+GE: '>=';
+LS: '<';
+LE: '<=';
+NE: '!=';
+T: 't'|'T';
+A: 'a'|'A';
+G: 'g'|'G';
+ACTION_DIRECTOR : '->';
+STRING : '"' (' '..'~')* '"';

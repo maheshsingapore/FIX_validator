@@ -1,36 +1,16 @@
-package com.citi.eq.tds.re.rule.condition;
 
-import com.citi.eq.tds.re.rule.event.Event;
-import com.citi.eq.tds.re.rule.type.TypeInferer;
-import com.citi.eq.tds.re.rule.util.Utils;
-
-import static java.lang.String.format;
-
-/**
- * Created by mv29256 on 10/21/2015.
- */
-public class EqualsCondition implements Condition {
-
-    private final Object expected;
-
-    public EqualsCondition(Object r) {
-        expected = r;
-    }
-
-    @Override
-    public boolean isSatisfiedBy(int tag, Event event) {
-        String field = event.getField(tag);
-
+    public static Object convert(String field) {
         TypeInferer type = TypeInferer.infer(field);
-        if (type == TypeInferer.TAG){
-               
-        }
-        Object actual = Utils.convert(field);
-        return expected != null && expected.equals(actual);
-    }
 
-    @Override
-    public String toString() {
-        return format("is equal to %s", expected);
+        if (type == TypeInferer.STRING) {
+            return field;
+        } else if (type == TypeInferer.INT) {
+            return Integer.parseInt(field);
+        } else if (type == TypeInferer.DOUBLE) {
+            return Double.parseDouble(field);
+        } else if (type == TypeInferer.TAG) {
+            return new GroovyTag(1); //TODO
+        }
+
+        return null;
     }
-}

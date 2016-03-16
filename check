@@ -1,22 +1,6 @@
-public enum TypeInferer {
+public interface Patterns {
 
-    INT(Integer.class), DOUBLE(Double.class), STRING(String.class), TAG(GroovyTag.class), UNKNOWN(Object.class);
-
-    private Class type;
-
-
-    TypeInferer(Class aClass) {
-        type = aClass;
-    }
-
-    public static TypeInferer infer(String field) {
-
-        if (field != null) {
-            if (NUMERIC.matcher(field).matches()) return INT;
-            else if (Patterns.DOUBLE.matcher(field).matches()) return DOUBLE;
-            else if (Patterns.TAG.matcher(field).matches()) return TAG;
-        }
-
-        return STRING;
-    }
+    public static final Pattern NUMERIC = Pattern.compile("-?\\d+");
+    public static final Pattern DOUBLE = Pattern.compile("\\d+\\.\\d+");
+    public static final Pattern TAG = Pattern.compile("tag\\(-?\\d+\\)");
 }

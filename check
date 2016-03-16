@@ -1,6 +1,34 @@
-public interface Patterns {
+public class AntlrRulesLoader implements RulesLoader {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AntlrRulesLoader.class);
+    private File root;
 
-    public static final Pattern NUMERIC = Pattern.compile("-?\\d+");
-    public static final Pattern DOUBLE = Pattern.compile("\\d+\\.\\d+");
-    public static final Pattern TAG = Pattern.compile("tag\\(-?\\d+\\)");
+    public AntlrRulesLoader(String absolutePath) throws FileNotFoundException {
+        root = new File(absolutePath);
+        if (!root.exists()) throw new FileNotFoundException();
+    }
+
+    @Override
+    public List<RuleBuilder> getRulesFor(File rulesFile) {
+        FixRulesLexer lexer;
+        CommonTokenStream tokens;
+        FixRulesParser parser;
+
+        CommonTokenStream stream = null;
+        try {
+            stream = new CommonTokenStream(new FixRulesLexer(new ANTLRInputStream(new FileReader(rulesFile))));
+            parser = new FixRulesParser(stream);
+
+            ParseTree tree = parser.rules();
+
+            ParseTreeWalker walker = new ParseTreeWalker();
+            FixRulesBuilder rulesBuilder = new FixRulesBuilder();
+            walker.walk(rulesBuilder, tree);
+
+            return rulesBuilder.getRuleBuilders();
+
+        } catch (IOException e) {
+            LOGGER.error(format("Failed to load rules from [%s]", rulesFile), e);
+        }
+        return Collections.emptyList();
+    }
 }

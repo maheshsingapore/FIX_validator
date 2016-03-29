@@ -1,5 +1,10 @@
 public class FixRulesBuilder extends FixRulesBaseListener {
 
+    private Stack<GroovyRuleBuilder> ifStack;
+
+    private List<GroovyRuleBuilder> andStack;
+    private List<GroovyRuleBuilder> orStack;
+
     private GroovyRuleBuilder builder;
     private GroovyTag tag;
     List<Condition> conditions = new ArrayList<>();
@@ -17,11 +22,14 @@ public class FixRulesBuilder extends FixRulesBaseListener {
 
     @Override
     public void enterPresent(FixRulesParser.PresentContext ctx) {
-        builder.getPresent();
+        builder.addCondition(IS_PRESENT);
     }
 
     @Override
     public void enterAnd(FixRulesParser.AndContext ctx) {
+        if (andStack == null) andStack = new ArrayList<>(5);
+
+        andStack.add(builder);
         builder.getAnd();
     }
 
@@ -85,16 +93,71 @@ public class FixRulesBuilder extends FixRulesBaseListener {
     }
 
     @Override
-    public void enterOnlyIf(FixRulesParser.OnlyIfContext ctx) {
+    public void enterTagStmt(FixRulesParser.TagStmtContext ctx) {
+        List<FixRulesParser.TagContext> tags = ctx.tag();
 
-        //System.out.println("onlyIf");
+        String operator = ctx.getParent().getChild(0).getText();
+        String operand = ctx.getText();
+
+        TagConcatenator concatenator = new TagConcatenator();
+        for (FixRulesParser.TagContext t : tags) {
+            concatenator.concat(t.INT().getText());
+        }
+
+        switch (operator) {
+            case "equal to":
+            case "=":
+                builder.addCondition(new EqualsCondition(concatenator));
+                break;
+            default:
+                System.out.println("unrecognized tag operator: " + operator);
+        }
+    }
+
+    @Override
+    public void enterTag(FixRulesParser.TagContext ctx) {
+        System.out.println(ctx.getText());
+    }
+
+    @Override
+    public void enterOnlyIf(FixRulesParser.OnlyIfContext ctx) {
+        //  System.out.println("onlyIf");
+    }
+
+    //TODO
+    @Override
+    public void enterValid(FixRulesParser.ValidContext ctx) {
+        builder.addCondition(new ValidCondition(builder.getTag()));
+    }
+
+    @Override
+    public void enterIfRule(FixRulesParser.IfRuleContext ctx) {
+        if (ifStack == null)
+            ifStack = new Stack<>();
+
+        String ifTagNumber = ctx.tag().INT().getText();
+        GroovyTag ifTag = new GroovyTag(Integer.parseInt(ifTagNumber));
+        GroovyRuleBuilder ifRuleBuilder = ifTag.getMustBe();
+
+        GroovyRuleBuilder conditionalBuilder = builder.onlyIf(ifRuleBuilder);
+        ifStack.push(conditionalBuilder);
+
+        this.builder = ifRuleBuilder; //switch current builder
+        this.tag = ifTag;
+    }
+
+    @Override
+    public void exitIfRule(FixRulesParser.IfRuleContext ctx) {
+        this.builder = ifStack.pop();
+        this.tag = (GroovyTag) this.builder.getTag();
     }
 
     @Override
     public void enterMustBe(FixRulesParser.MustBeContext ctx) {
-        builder = tag.getMustBe();
+        builder = builder == null ? tag.getMustBe() : builder;
     }
 
+    //TODO
     @Override
     public void enterMustNotBe(FixRulesParser.MustNotBeContext ctx) {
         builder = tag.getMustNotBe();
@@ -102,13 +165,16 @@ public class FixRulesBuilder extends FixRulesBaseListener {
 
     @Override
     public void enterIs(FixRulesParser.IsContext ctx) {
-        builder = tag.getIs();
+        builder = builder == null ? builder = tag.getIs() : builder;
+    }
+
+    private boolean conditionalStmt() {
+        return ifStack != null;
     }
 
     @Override
     public void enterLogicalCondition(FixRulesParser.LogicalConditionContext ctx) {
-        FixRulesParser.OnlyIfContext onlyIfContext = ctx.onlyIf();
-        //System.out.println("enterLogicalCondition:" + ctx.getText());
+        //System.out.println("logicalCondition:" + ctx.getText());
     }
 
     @Override
@@ -119,12 +185,16 @@ public class FixRulesBuilder extends FixRulesBaseListener {
         String operand = ctx.getText();
 
         operand = operand.replaceAll("\"", "");
-        Object converted = Utils.convert(operand);
+        FieldTransformer transformed = TypeInferer.infer(operand);
 
         switch (operator) {
+            case "match":
+            case "~=":
+                builder.addCondition(new PatternCondition(operand));
+                break;
             case "equal to":
             case "=":
-                builder.addCondition(new EqualsCondition(converted));
+                builder.addCondition(new EqualsCondition(transformed));
                 break;
             case "greater than":
             case ">":
@@ -135,7 +205,7 @@ public class FixRulesBuilder extends FixRulesBaseListener {
                 builder.lessThan(Double.parseDouble(operand));
                 break;
             case "!=":
-                builder.addCondition(new NotCondition(new EqualsCondition(converted)));
+                builder.addCondition(new NotCondition(new EqualsCondition(transformed)));
                 break;
             default:
                 System.out.println("unrecognized mono operator: " + operator);

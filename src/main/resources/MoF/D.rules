@@ -1,0 +1,14 @@
+tag(11) must be present;
+tag(9) must be  equal to 840;
+tag(9) = 840;
+
+tag(9) != 841;
+tag(8) must be in "FIX.4.3", "FIX.4.5";
+tag(8) = "FIX.4.4";
+tag(55) must be absent;
+tag(55) is present;
+tag(1) = "LDA";
+tag(11) must be equal to tag(41);
+
+tag(84) must be greater than 0;
+tag(59) must not be equal to 6;

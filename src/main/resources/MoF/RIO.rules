@@ -1,0 +1,18 @@
+tag(59) must be equal to 1;
+tag(56) must be valid;
+tag(8) must be in "FIX.4.2","FIX.4.3","FIX.4.4" ;
+tag(9) must be present;
+tag(35) = "RIO";
+tag(56) must not be equal to "CORE8";
+tag(9) must be equal to 954;
+tag(9) = 954;
+tag(9) != 841;
+tag(8) must be in "FIX.4.3", "FIX.4.5";
+tag(8) = "FIX.4.4";
+tag(55) is present;
+tag(1) = "EDJO005E";
+tag(11) must be equal to tag(41);
+tag(37) = tag(31);
+tag(10206) = tag(11) + tag(37) + tag(10207);
+tag(59) must not be equal to 6;
+tag(52) ~= "[0-9]{8}-[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}";

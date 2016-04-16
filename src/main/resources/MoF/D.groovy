@@ -1,6 +1,6 @@
 package MoF
 
-import static com.citi.eq.tds.re.rule.core.GroovyTag.tag
+import static com.resilient.re.re.rule.core.GroovyTag.tag
 
 //Compare with http://www.quickfixj.org/quickfixj/usermanual/1.5.3/usage/validation.html
 

@@ -5,8 +5,8 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 apply plugin: 'application'
-//mainClassName = 'com.citi.eq.tds.re.rule.Main'
-mainClassName = 'com.citi.eq.tds.re.rule.http.HttpServer'
+//mainClassName = 'Main'
+mainClassName = 'HttpServer'
 
 sourceCompatibility = 1.8
 
@@ -33,6 +33,6 @@ configurations {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'com.citi.eq.tds.re.rule.Main'
+        attributes 'Main-Class': 'Main'
     }
 }

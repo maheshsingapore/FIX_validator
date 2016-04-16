@@ -16,175 +16,21 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="Gradle: org.codehaus.groovy:groovy-all:2.3.11">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.11/f6b34997d04c1538ce451d3955298f46fdb4dbd4/groovy-all-2.3.11.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.11/fdf089bfd5d0b7e86100ac599741f65732fc21d5/groovy-all-2.3.11-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.slf4j:slf4j-log4j12:1.7.21">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.21/7238b064d1aba20da2ac03217d700d91e02460fa/slf4j-log4j12-1.7.21.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.21/16b1333786ea93d16bff6fb0f5e3b82716d1b008/slf4j-log4j12-1.7.21-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: commons-io:commons-io:2.4">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/commons-io/commons-io/2.4/b1b6ea3b7e4aa4f492509a4952029cd8e48019ad/commons-io-2.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/commons-io/commons-io/2.4/f2d8698c46d1167ff24b06a840a87d91a02db891/commons-io-2.4-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.antlr:antlr4-runtime:4.5.2">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.5.2/8acd9726ad2afe5db5cce074886d3034c0eed9b/antlr4-runtime-4.5.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.5.2/1d5602e337ac71bff730ce847b0d571082fbd78e/antlr4-runtime-4.5.2-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: com.h2database:h2:1.4.191">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/com.h2database/h2/1.4.191/dec3540178ea889b2871b0ed56db14bbec9cfdfc/h2-1.4.191.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/com.h2database/h2/1.4.191/75ff7980393538e5028dc4b9311c613c038918f3/h2-1.4.191-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.eclipse.jetty:jetty-servlet:9.3.9.M1">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.3.9.M1/8fe17dcda978723bc85fdddb6bdd9e9e91858d30/jetty-servlet-9.3.9.M1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.3.9.M1/d53c1a609bda5a7ed30c3156c22fdb98e9570d46/jetty-servlet-9.3.9.M1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.slf4j:slf4j-api:1.7.21">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/139535a69a4239db087de9bab0bee568bf8e0b70/slf4j-api-1.7.21.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/f285ac123f201fb4b028bac556928d7cf527ef48/slf4j-api-1.7.21-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: log4j:log4j:1.2.17">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/log4j/log4j/1.2.17/677abe279b68c5e7490d6d50c6951376238d7d3e/log4j-1.2.17-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.eclipse.jetty:jetty-security:9.3.9.M1">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/9.3.9.M1/4a30ed4b1bd02c79e21015ba3f65c52e4e0c5886/jetty-security-9.3.9.M1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/9.3.9.M1/4a13e43874bc097f5d714eb3ecaf889ddb5b31a2/jetty-security-9.3.9.M1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.eclipse.jetty:jetty-server:9.3.9.M1">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.3.9.M1/78e6802fbc004027979c6775875c73a60d27174e/jetty-server-9.3.9.M1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.3.9.M1/b9cf5ffa191d407a07724673beda1d84d5808cb6/jetty-server-9.3.9.M1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: javax.servlet:javax.servlet-api:3.1.0">
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.eclipse.jetty:jetty-http:9.3.9.M1">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.3.9.M1/fce2430b079d80da697d6341bc0f13d97109fc9/jetty-http-9.3.9.M1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.3.9.M1/c3f5425402391cae975101895302d916cb5d04c5/jetty-http-9.3.9.M1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.eclipse.jetty:jetty-io:9.3.9.M1">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.3.9.M1/2b8b49f8a0def7c63c34e387ce8e63535efe118e/jetty-io-9.3.9.M1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.3.9.M1/7d841da2a7a3c404c1b2fa2acba4686ca697f485/jetty-io-9.3.9.M1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.eclipse.jetty:jetty-util:9.3.9.M1">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.3.9.M1/b7339ff625e382afb6e16dbac3569dcc5aac3714/jetty-util-9.3.9.M1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../installers/gradle/gradle-2.9/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.3.9.M1/38c67abc2c71db21bfc8867cf8a9bfb14dbfb155/jetty-util-9.3.9.M1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library name="Gradle: junit:junit:4.11">
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library name="Gradle: org.hamcrest:hamcrest-core:1.3">
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy-all:2.3.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-log4j12:1.7.21" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.antlr:antlr4-runtime:4.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.h2database:h2:1.4.191" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-servlet:9.3.9.M1" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.21" level="project" />
+    <orderEntry type="library" name="Gradle: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-security:9.3.9.M1" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-server:9.3.9.M1" level="project" />
+    <orderEntry type="library" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-http:9.3.9.M1" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-io:9.3.9.M1" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-util:9.3.9.M1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.11" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
   </component>
 </module>

@@ -1,3 +1,11 @@
+Fluiding rules that are easy to define and understand
+Rule definitions define expected behaviour and act as live document
+No/ minimal learning curve
+Ease of extending logical conditions, operators and statements.
+UI editor with content-assist
+Hooks for integrating with QuickFIXJ/ firm-specific data dictionary
+Embeddable in your existing applications
+
 ```sh
 tag(11) must be             present;
 tag(32) must be             greater than 0;

@@ -33,7 +33,7 @@ public class RuleResultTest {
 
     @Test
     public void testInStringList() {
-        mustPass("	tag(8) must be in \"FIX.4.2\",\"FIX.4.3\",\"FIX.4.4\" if tag(8) = \"FIX.4.4\";	");
+        mustFail("	tag(8) must be in \"FIX.4.2\",\"FIX.4.3\",\"FIX.4.4\" if tag(8) = \"FIX.4.4\";	");
 //        mustPass("	tag(8) in \"FIX.4.2\",\"FIX.4.3\",\"FIX.4.4\" ;	" +
 //                "tag(8) must be in \"FIX.4.2\",\"FIX.4.3\",\"FIX.4.4\" ;");
 //

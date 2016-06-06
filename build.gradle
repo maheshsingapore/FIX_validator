@@ -5,8 +5,8 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 apply plugin: 'application'
-//mainClassName = 'Main'
-mainClassName = 'HttpServer'
+mainClassName = 'com.resilient.re.rule.Main'
+//mainClassName = 'HttpServer'
 
 sourceCompatibility = 1.8
 

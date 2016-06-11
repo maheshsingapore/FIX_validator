@@ -17,7 +17,7 @@ public class H2 implements ValuesDataSource {
 
         try {
             Class.forName("org.h2.Driver");
-            conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/mem:kaizen", "sa", "");
+            conn = DriverManager.getConnection("jdbc:h2:tcp://localhost:8089/mem:kaizen", "sa", "");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             conn = null;

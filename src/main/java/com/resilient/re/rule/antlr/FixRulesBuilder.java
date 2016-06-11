@@ -92,7 +92,7 @@ public class FixRulesBuilder extends FixRulesBaseListener {
 
     @Override
     public void enterListOperator(FixRulesParser.ListOperatorContext ctx) {
-        String listOperator = ctx.getText();
+
     }
 
     @Override
@@ -101,7 +101,7 @@ public class FixRulesBuilder extends FixRulesBaseListener {
         text = text.replaceAll("\\)|\\(", "");
 
         String[] operands = text.split(Constants.COMMA);
-        if (operands != null && operands.length == 2) {
+        if (operands.length == 2) {
             String op1 = operands[0];
             String op2 = operands[1];
 
@@ -216,10 +216,6 @@ public class FixRulesBuilder extends FixRulesBaseListener {
         builder = builder == null ? builder = tag.getIs() : builder;
     }
 
-    private boolean conditionalStmt() {
-        return branchStack != null;
-    }
-
     @Override
     public void enterLogicalCondition(FixRulesParser.LogicalConditionContext ctx) {
         //System.out.println("logicalCondition:" + ctx.getText());
@@ -271,10 +267,6 @@ public class FixRulesBuilder extends FixRulesBaseListener {
     @Override
     public void enterMonoOperandOperator(FixRulesParser.MonoOperandOperatorContext ctx) {
         //used by child
-    }
-
-    private boolean isPresent(FixRulesParser.LogicalOperatorContext logicalOperator) {
-        return logicalOperator != null;
     }
 
     @Override

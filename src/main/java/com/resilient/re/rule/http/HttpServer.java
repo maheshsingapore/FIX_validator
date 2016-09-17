@@ -23,7 +23,11 @@ import java.util.Map;
  */
 public class HttpServer {
 
-    public static void main(String[] args) throws Exception {
+    public HttpServer() throws Exception {
+        this(8090);
+    }
+
+    public HttpServer(int port) throws Exception {
         Server jetty = new Server(8090);
 
         ServletHandler servlets = new ServletHandler();
@@ -42,6 +46,9 @@ public class HttpServer {
 
         jetty.start();
         jetty.join();
+    }
+    public static void main(String[] args) throws Exception {
+        new HttpServer();
     }
 
     public static class EvalServlet extends HttpServlet {

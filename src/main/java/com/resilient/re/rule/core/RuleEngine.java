@@ -26,7 +26,7 @@ public class RuleEngine {
         rules = new HashMap<>();
     }
 
-    public static final RuleEngine instance() {
+    public static RuleEngine instance() {
         return SINGLETON;
     }
 

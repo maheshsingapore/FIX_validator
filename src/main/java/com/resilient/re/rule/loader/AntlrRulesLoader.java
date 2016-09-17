@@ -35,8 +35,6 @@ public class AntlrRulesLoader implements RulesLoader {
 
     @Override
     public List<RuleBuilder> getRulesFor(File rulesFile) {
-        FixRulesLexer lexer;
-        CommonTokenStream tokens;
         FixRulesParser parser;
 
         CommonTokenStream stream = null;
@@ -61,11 +59,9 @@ public class AntlrRulesLoader implements RulesLoader {
 
     @Override
     public List<RuleBuilder> getRulesFor(Reader in) {
-        FixRulesLexer lexer;
-        CommonTokenStream tokens;
         FixRulesParser parser;
 
-        CommonTokenStream stream = null;
+        CommonTokenStream stream;
         try {
             stream = new CommonTokenStream(new FixRulesLexer(new ANTLRInputStream(in)));
             parser = new FixRulesParser(stream);

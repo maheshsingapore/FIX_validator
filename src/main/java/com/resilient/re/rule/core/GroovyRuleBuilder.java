@@ -8,6 +8,7 @@ import com.resilient.re.rule.event.Event;
 import com.resilient.re.rule.type.TypeInferer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,9 +27,7 @@ public class GroovyRuleBuilder implements RuleBuilder {
         this.tag = t;
         this.conditions = new ArrayList<>();
 
-        for (Condition c : conditions) {
-            this.conditions.add(c);
-        }
+        Collections.addAll(this.conditions, conditions);
     }
 
     public GroovyRuleBuilder(Tag t) {

@@ -1,7 +1,7 @@
 package com.resilient.re.rule.util;
 
 /**
- * Created by mv29256 on 10/15/2015.
+ * Created by mahesh on 10/15/2015.
  */
 public class AssertArgument {
     public static void isNotNull(Object... args) {

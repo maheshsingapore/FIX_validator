@@ -3,7 +3,7 @@ package com.resilient.re.ext;
 import com.resilient.re.rule.event.Event;
 
 /**
- * Created by mv29256 on 3/15/2016.
+ * Created by mahesh on 3/15/2016.
  */
 public class MessageFactory {
 

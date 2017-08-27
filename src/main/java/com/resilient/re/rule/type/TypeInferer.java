@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import static com.resilient.re.rule.util.Patterns.NUMERIC;
 
 /**
- * Created by mv29256 on 3/16/2016.
+ * Created by mahesh on 3/16/2016.
  */
 public enum TypeInferer {
 

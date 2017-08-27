@@ -1,7 +1,7 @@
 package com.resilient.re.rule.core;
 
 /**
- * Created by mv29256 on 10/22/2015.
+ * Created by mahesh on 10/22/2015.
  */
 public class Constants {
 

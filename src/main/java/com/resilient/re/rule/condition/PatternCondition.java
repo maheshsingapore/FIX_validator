@@ -7,7 +7,7 @@ import com.resilient.re.rule.util.Patterns;
 import java.util.regex.Pattern;
 
 /**
- * Created by mv29256 on 10/16/2015.
+ * Created by mahesh on 10/16/2015.
  */
 public class PatternCondition implements Condition {
 

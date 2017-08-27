@@ -3,7 +3,7 @@ package com.resilient.re.rule.groovy
 import groovy.time.TimeCategory
 
 /**
- * Created by mv29256 on 10/12/2015.
+ * Created by mahesh on 10/12/2015.
  */
 
 use(TimeCategory) {

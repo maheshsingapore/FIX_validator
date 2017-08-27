@@ -8,7 +8,7 @@ import com.resilient.re.rule.util.AssertArgument;
 import static java.lang.String.format;
 
 /**
- * Created by mv29256 on 10/21/2015.
+ * Created by mahesh on 10/21/2015.
  */
 public class EqualsCondition implements Condition {
 

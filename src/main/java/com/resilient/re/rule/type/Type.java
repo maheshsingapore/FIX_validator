@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 
 /**
- * Created by mv29256 on 3/17/2016.
+ * Created by mahesh on 3/17/2016.
  */
 public class Type implements Comparable {
     private static final SimpleDateFormat[] FORMATS = new SimpleDateFormat[22];

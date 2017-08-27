@@ -3,7 +3,7 @@ package com.resilient.re.rule.util;
 import java.util.regex.Pattern;
 
 /**
- * Created by mv29256 on 10/22/2015.
+ * Created by mahesh on 10/22/2015.
  */
 public interface Patterns {
 

@@ -5,7 +5,7 @@ import com.resilient.re.rule.condition.Condition;
 import com.resilient.re.rule.event.Event;
 
 /**
- * Created by mv29256 on 10/22/2015.
+ * Created by mahesh on 10/22/2015.
  */
 public class AndRuleBuilder extends GroovyRuleBuilder implements Condition {
 

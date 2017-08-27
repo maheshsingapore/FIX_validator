@@ -7,7 +7,7 @@ import com.resilient.re.rule.event.Event;
 import java.util.List;
 
 /**
- * Created by mv29256 on 2/23/2016.
+ * Created by mahesh on 2/23/2016.
  */
 public interface RuleBuilder {
 

@@ -12,7 +12,7 @@ import java.util.Arrays;
 import static com.resilient.re.rule.util.Utils.arrayContains;
 
 /**
- * Created by mv29256 on 3/28/2016.
+ * Created by mahesh on 3/28/2016.
  */
 public class ValidCondition implements Condition {
     private String[] values;

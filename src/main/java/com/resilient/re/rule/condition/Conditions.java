@@ -5,7 +5,7 @@ import com.resilient.re.rule.event.Event;
 import com.resilient.re.rule.util.Patterns;
 
 /**
- * Created by mv29256 on 10/16/2015.
+ * Created by mahesh on 10/16/2015.
  */
 public class Conditions {
 

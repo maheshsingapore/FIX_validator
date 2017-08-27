@@ -7,7 +7,7 @@ import com.resilient.re.rule.core.Constants;
 import static java.lang.String.format;
 
 /**
- * Created by mv29256 on 10/16/2015.
+ * Created by mahesh on 10/16/2015.
  */
 public class ResultBuilder {
 

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Created by mv29256 on 3/15/2016.
+ * Created by mahesh on 3/15/2016.
  */
 public class Message implements Event {
 

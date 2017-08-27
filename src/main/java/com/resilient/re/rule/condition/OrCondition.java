@@ -6,7 +6,7 @@ import com.resilient.re.rule.core.RuleBuilder;
 import com.resilient.re.rule.event.Event;
 
 /**
- * Created by mv29256 on 10/22/2015.
+ * Created by mahesh on 10/22/2015.
  */
 public class OrCondition implements Condition {
 

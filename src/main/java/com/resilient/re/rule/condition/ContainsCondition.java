@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static com.resilient.re.rule.util.Utils.arrayContains;
 
 /**
- * Created by mv29256 on 10/16/2015.
+ * Created by mahesh on 10/16/2015.
  */
 public class ContainsCondition implements Condition {
 
